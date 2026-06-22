@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dianique - Dessert Premium untuk Setiap Momen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FFF7EF;
+            --soft-beige: #F5E8D7;
+            --light-brown: #C89F7A;
+            --dark-brown: #6B4A34;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark-brown);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 247, 239, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(107, 74, 52, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark-brown);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-brown);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-brown);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-beige) 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--dark-brown);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: var(--dark-brown);
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--dark-brown);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--light-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(107, 74, 52, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark-brown);
+            border: 2px solid var(--dark-brown);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark-brown);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(107, 74, 52, 0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+            color: var(--dark-brown);
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--cream);
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 36px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--dark-brown);
+        }
+
+        .feature-card p {
+            color: var(--dark-brown);
+            opacity: 0.8;
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--cream);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(107, 74, 52, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-info h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--dark-brown);
+        }
+
+        .product-info p {
+            color: var(--dark-brown);
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .cta-center {
+            text-align: center;
+        }
+
+        /* Moments Section */
+        .moments {
+            background: var(--soft-beige);
+        }
+
+        .moments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .moment-item {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .moment-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .moment-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .moment-item h3 {
+            font-size: 20px;
+            color: var(--dark-brown);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 80px;
+            color: var(--light-brown);
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark-brown);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--light-brown);
+        }
+
+        /* Partnership Section */
+        .partnership {
+            background: var(--dark-brown);
+            color: var(--white);
+        }
+
+        .partnership .section-title {
+            color: var(--white);
+        }
+
+        .partnership-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .partnership-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .benefits-list li {
+            font-size: 18px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: var(--light-brown);
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .btn-light {
+            background: var(--white);
+            color: var(--dark-brown);
+        }
+
+        .btn-light:hover {
+            background: var(--light-brown);
+            color: var(--white);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--cream);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--soft-beige);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 24px;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--soft-beige) 0%, var(--cream) 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 24px;
+            color: var(--dark-brown);
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--dark-brown);
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-brown);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .features-grid,
+            .products-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .moments-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Dianique</a>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#kemitraan">Kemitraan</a></li>
+                <li><a href="#testimoni">Testimoni</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="beranda">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Dessert Premium yang Bikin Setiap Momen Jadi Lebih Manis</h1>
+                    <p>Dianique menghadirkan aneka dessert premium yang dibuat dari bahan pilihan dengan rasa yang lembut dan memanjakan lidah. Mulai dari Bolu Kukus Coklat, Cheesecuit, hingga Banana Pudding, semuanya dibuat fresh untuk menemani setiap momen spesial Anda.</p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/6285248451868" class="btn btn-primary">Pesan Sekarang</a>
+                        <a href="https://wa.me/6285248451868" class="btn btn-secondary">Chat WhatsApp</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://image.qwenlm.ai/public_source/db6fa9af-2073-4016-bd9d-fc20c6db97a3/18bd186f5-5817-42a9-9937-d1a2df7929e2.png" alt="Dessert Collection">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Kenapa Pelanggan Menyukai Dianique?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Bahan Berkualitas</h3>
+                    <p>Menggunakan bahan pilihan untuk menghasilkan rasa yang lezat dan konsisten.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Fresh Dibuat Setiap Hari</h3>
+                    <p>Produk dibuat dalam kondisi segar agar kualitas dan cita rasa tetap terjaga.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Cocok untuk Berbagai Kebutuhan</h3>
+                    <p>Nikmat untuk cemilan pribadi, hampers, acara keluarga, hingga kebutuhan kantor dan reseller.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="produk">
+        <div class="container">
+            <h2 class="section-title">Menu Favorit Pelanggan</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://image.qwenlm.ai/public_source/db6fa9af-2073-4016-bd9d-fc20c6db97a3/1543fbb70-0715-4b15-9149-844dc9ec46e5.png" alt="Bolu Kukus Coklat" class="product-image">
+                    <div class="product-info">
+                        <h3>Bolu Kukus Coklat</h3>
+                        <p>Bolu lembut dengan tekstur moist dan rasa coklat yang kaya, cocok dinikmati kapan saja.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://image.qwenlm.ai/public_source/db6fa9af-2073-4016-bd9d-fc20c6db97a3/18d187739-119d-41e8-beca-d66d84f10463.png" alt="Cheesecuit" class="product-image">
+                    <div class="product-info">
+                        <h3>Cheesecuit</h3>
+                        <p>Perpaduan biskuit dan krim keju yang creamy dengan rasa manis yang pas di lidah.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://image.qwenlm.ai/public_source/db6fa9af-2073-4016-bd9d-fc20c6db97a3/1c372a0c2-a4d2-451a-b856-a70e234d8c61.png" alt="Banana Pudding" class="product-image">
+                    <div class="product-info">
+                        <h3>Banana Pudding</h3>
+                        <p>Dessert lembut dengan lapisan pisang dan krim yang nikmat, memberikan sensasi manis yang menyegarkan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cta-center">
+                <a href="https://wa.me/6285248451868" class="btn btn-primary">Lihat Menu Lengkap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moments Section -->
+    <section class="moments">
+        <div class="container">
+            <h2 class="section-title">Dianique untuk Setiap Momen Spesial</h2>
+            <div class="moments-grid">
+                <div class="moment-item">
+                    <div class="moment-icon">☕</div>
+                    <h3>Cemilan Harian</h3>
+                </div>
+                <div class="moment-item">
+                    <div class="moment-icon"></div>
+                    <h3>Hampers dan Hadiah</h3>
+                </div>
+                <div class="moment-item">
+                    <div class="moment-icon">👨‍👩‍👧</div>
+                    <h3>Acara Keluarga</h3>
+                </div>
+                <div class="moment-item">
+                    <div class="moment-icon"></div>
+                    <h3>Meeting Kantor</h3>
+                </div>
+                <div class="moment-item">
+                    <div class="moment-icon">🤝</div>
+                    <h3>Reseller dan Cafe Partner</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimoni">
+        <div class="container">
+            <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Cheesecuit-nya creamy dan tidak terlalu manis, favorit keluarga kami."</p>
+                    <p class="testimonial-author">- Pelanggan Setia</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Banana pudding-nya lembut dan segar, bikin ketagihan."</p>
+                    <p class="testimonial-author">- Pelanggan Setia</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Bolu kukus coklatnya empuk dan selalu fresh saat diterima."</p>
+                    <p class="testimonial-author">- Pelanggan Setia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="partnership" id="kemitraan">
+        <div class="container">
+            <h2 class="section-title">Menjadi Mitra Dianique</h2>
+            <div class="partnership-content">
+                <p>Kami membuka peluang kerja sama untuk reseller, cafe, event organizer, toko oleh-oleh, dan berbagai kebutuhan usaha dengan sistem yang mudah dan menguntungkan.</p>
+                <ul class="benefits-list">
+                    <li>Harga Khusus Mitra</li>
+                    <li>Dukungan Promosi</li>
+                    <li>Kualitas Produk Konsisten</li>
+                    <li>Minimum Order Fleksibel</li>
+                </ul>
+                <a href="https://wa.me/6285248451868" class="btn btn-light">Daftar Menjadi Mitra</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah menerima pesanan dalam jumlah besar?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, kami melayani kebutuhan acara, kantor, reseller, dan berbagai kegiatan lainnya.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Berapa lama proses pemesanan?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sekitar 1–2 hari tergantung jumlah pesanan.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah bisa dikirim ke luar kota?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Menyesuaikan jenis produk dan area pengiriman.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Yuk, Pesan Dessert Favoritmu Sekarang!</h2>
+            <p>Nikmati Bolu Kukus Coklat, Cheesecuit, dan Banana Pudding yang dibuat fresh setiap hari dengan bahan berkualitas dan rasa yang istimewa.</p>
+            <p style="font-size: 16px; margin-bottom: 30px;">Klik tombol WhatsApp di bawah ini untuk bertanya, melihat katalog, atau langsung melakukan pemesanan.</p>
+            <a href="https://wa.me/6285248451868" class="btn btn-primary">CHAT WHATSAPP SEKARANG</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dianique</h3>
+                    <p>Dessert premium untuk setiap momen spesial Anda.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Menu</h3>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#produk">Produk</a></li>
+                        <li><a href="#kemitraan">Kemitraan</a></li>
+                        <li><a href="#testimoni">Testimoni</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <ul>
+                        <li><a href="https://wa.me/6285248451868">WhatsApp: 085248451868</a></li>
+                        <li><a href="https://instagram.com/dianiqueee_">Instagram: @dianiqueee_</a></li>
+                        <li><a href="https://tiktok.com/@dianiqueee_">TikTok: @dianiqueee_</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2026 Dianique. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/6285248451868" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .product-card, .moment-item, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
